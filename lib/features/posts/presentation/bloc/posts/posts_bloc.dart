@@ -1,9 +1,11 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../../../core/error/failure.dart';
-import '../../../../../core/strrings/failures.dart';
+import '../../../../../core/error/map_failure_to_message.dart';
 import '../../../domain/entities/post.dart';
 import '../../../domain/use_cases/get_all_posts.dart';
 
@@ -27,24 +29,8 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
 
   PostsState _mapFailureOrPostsState(Either<Failure, List<Post>> either) {
     return either.fold(
-      (failure) => ErrorPostsState(message: _mapFailureToMessage(failure)),
+      (failure) => ErrorPostsState(message: mapFailureToMessage(failure)),
       (posts) => LoadedPostsState(posts: posts),
     );
-  }
-
-  String _mapFailureToMessage(Failure failure) {
-    switch (failure.runtimeType) {
-      case ServerFailure _:
-        return SERVER_FAILURE_MESSAGE;
-
-      case EmptyCacheFailure _:
-        return EMPTY_CACHE_FAILURE_MESSAGE;
-
-      case OfflineFailure _:
-        return OFFLINE_FAILURE_MESSAGE;
-
-      default:
-        return "Unexpected Error, Please try again later.";
-    }
   }
 }
