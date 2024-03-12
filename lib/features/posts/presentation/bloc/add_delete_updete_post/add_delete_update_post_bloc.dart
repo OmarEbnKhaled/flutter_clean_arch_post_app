@@ -5,7 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../../../core/error/failure.dart';
-import '../../../../../core/error/map_failure_to_message.dart';
+import '../../../../../core/error/map_failure_to_message_fn.dart';
 import '../../../../../core/strrings/success_messages.dart';
 import '../../../domain/entities/post.dart';
 import '../../../domain/use_cases/add_post.dart';
