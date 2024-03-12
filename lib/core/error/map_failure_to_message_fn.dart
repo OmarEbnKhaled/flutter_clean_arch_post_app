@@ -3,13 +3,13 @@ import 'failure.dart';
 
 String mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {
-      case ServerFailure _:
+      case const (ServerFailure):
         return SERVER_FAILURE_MESSAGE;
 
-      case EmptyCacheFailure _:
+      case const (EmptyCacheFailure) :
         return EMPTY_CACHE_FAILURE_MESSAGE;
 
-      case OfflineFailure _:
+      case const (OfflineFailure) :
         return OFFLINE_FAILURE_MESSAGE;
 
       default:

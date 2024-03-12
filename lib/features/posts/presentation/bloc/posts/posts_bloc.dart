@@ -22,7 +22,7 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
         emit(LoadingPostsState());
 
         final failureOrPosts = await getAllPosts();
-        _mapFailureOrPostsState(failureOrPosts);
+        emit(_mapFailureOrPostsState(failureOrPosts));
       }
     });
   }
