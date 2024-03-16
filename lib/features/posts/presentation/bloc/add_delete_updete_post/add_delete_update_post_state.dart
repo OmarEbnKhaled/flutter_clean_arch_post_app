@@ -11,10 +11,10 @@ final class AddDeleteUpdatePostInitial extends AddDeleteUpdatePostState {}
 
 final class LoadingAddDeleteUpdatePostState extends AddDeleteUpdatePostState {}
 
-final class SuccessAddDeleteUpdatePostState extends AddDeleteUpdatePostState {
+final class MessageAddDeleteUpdatePostState extends AddDeleteUpdatePostState {
   final String message;
 
-  const SuccessAddDeleteUpdatePostState({required this.message});
+  const MessageAddDeleteUpdatePostState({required this.message});
 
   @override
   List<Object> get props => [];

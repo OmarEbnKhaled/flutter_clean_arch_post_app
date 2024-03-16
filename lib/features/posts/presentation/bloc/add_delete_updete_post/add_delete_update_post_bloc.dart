@@ -60,7 +60,7 @@ class AddDeleteUpdatePostBloc
       (failure) => ErrorAddDeleteUpdatePostState(
         message: mapFailureToMessage(failure),
       ),
-      (_) => SuccessAddDeleteUpdatePostState(message: message),
+      (_) => MessageAddDeleteUpdatePostState(message: message),
     );
   }
 }
